@@ -1,0 +1,35 @@
+387. First Unique Character in a String 
+Example 1:
+
+Input: s = "leetcode"
+
+Output: 0
+
+Explanation:
+
+The character 'l' at index 0 is the first character that does not occur at any other index.
+
+Example 2:
+
+Input: s = "loveleetcode"
+
+Output: 2
+
+
+class Solution {
+    public int firstUniqChar(String s) {
+      HashMap<Character,Integer>map=new HashMap<>();
+      char[] res=s.toCharArray();
+      int  max=-1;
+      for(char ch:res){
+        map.put(ch,map.getOrDefault(ch,0)+1);
+      } 
+      for(int i=0;i<s.length();i++){
+        if(map.get(s.charAt(i))==1){
+            max= i;
+            break;
+        }
+      } 
+      return max;
+    }
+}
