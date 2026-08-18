@@ -1,0 +1,25 @@
+190. Reverse Bits
+
+Reverse bits of a given 32 bits signed integer.
+
+Example 1:
+
+Input: n = 43261596
+
+Output: 964176192
+
+Explanation:
+
+class Solution {
+    public int reverseBits(int n) {
+      StringBuilder result=new StringBuilder();
+      int count=0;
+      while(count<32){
+        int num=n&1;
+        result.append(num);
+        count++;
+        n=n>>1;
+      }
+       return Integer.parseInt(result.toString(),2);
+    }
+}
